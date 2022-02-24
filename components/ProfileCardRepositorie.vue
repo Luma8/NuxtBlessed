@@ -24,26 +24,36 @@
       <p>{{ Posts.company }}</p>
       <p>{{ Posts.location }}</p>
     </div>
-    <div class="Overview2">a</div>
+    <div class="Overview2">
+      <tr v-for="repo in repos" :key="repo.id">
+        <td>{{ repo.id }}</td>
+        <td>{{ repo.name }}</td>
+        <td>{{ repo.html_url }}</td>
+        <td>{{ repo.language }}</td>
+        <td>{{ repo.owner.Login }}</td>
+      </tr>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import api from "../components/api";
+import api from "./api";
 export default {
   name: "ProfileCard",
   data() {
     return {
       Posts: [],
+      repos: null,
     };
   },
   mounted() {
     api.get("https://api.github.com/users/yusefrich").then((response) => {
       this.Posts = response.data;
-      console.log(response.data);
+      console.log("All-objects", response.data);
     });
-    api.get("https://api.github.com/users/yusefrich/orgs").then((response) => {
-      console.log(response.data);
+    api.get("https://api.github.com/users/yusefrich/repos").then((response) => {
+      this.repos = response.data;
+      console.log("Repositories", response.data);
     });
   },
 };
@@ -54,8 +64,6 @@ export default {
   display: flex;
 }
 .Overview2 {
-  margin-left: 30px;
-  margin-right: 30px;
   margin-top: 100px;
   width: 70%;
   height: 70%;

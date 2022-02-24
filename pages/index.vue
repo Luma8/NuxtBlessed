@@ -4,10 +4,15 @@
     <Navbar />
     <SecondNavbar />
     <ProfileCard />
+    <Overview />
+
   </body>
 </template>
 
 <script lang="ts">
+export default {
+  name: "Homepage",
+};
 </script>
 
 <style scoped>

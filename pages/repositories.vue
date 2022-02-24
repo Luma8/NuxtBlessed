@@ -2,7 +2,7 @@
   <body class="Background">
     <Navbar />
     <SecondNavbar />
-    <ProfileCard />
+    <ProfileCardRepositorie />
   </body>
 </template>
 
