@@ -14,24 +14,25 @@
       <p class="Bio">{{ Posts.bio }}</p>
       <button class="buttonFollow mt-2 mb-2">Edit profile</button>
       <div class="d-flex">
-        <p class="ml-2">
-          {{ Posts.followers }} <a class="colorGray">Followers</a>
-        </p>
-        <p class="ml-2">
-          {{ Posts.following }} <a class="colorGray">Followings</a>
-        </p>
+        <p class="ml-2">{{ Posts.followers }} <a class="colorGray">Followers</a></p>
+        <p class="ml-2">{{ Posts.following }} <a class="colorGray">Followings</a></p>
       </div>
       <p>{{ Posts.company }}</p>
       <p>{{ Posts.location }}</p>
     </div>
     <div class="Overview2">
-      <tr v-for="repo in repos" :key="repo.id">
-        <td>{{ repo.id }}</td>
-        <td>{{ repo.name }}</td>
-        <td>{{ repo.html_url }}</td>
-        <td>{{ repo.language }}</td>
-        <td>{{ repo.owner.Login }}</td>
-      </tr>
+      <div class="mt-5" v-for="repo in repos" :key="repo.id">
+        <div class="d-flex align-items-center">
+          <h1 class="repoName">{{ repo.name }}</h1>
+          <h2 class="Visib ml-2">{{ repo.visibility }}</h2>
+        </div>
+        <p class="colorGray">{{ repo.description }}</p>
+        <div class="d-flex align-items-center">
+          <p class="mr-5">{{ repo.language }}</p>
+          <p class="colorGray">{{ repo.updated_at }}</p>
+        </div>
+        <div class="side" />
+      </div>
     </div>
   </div>
 </template>
@@ -66,8 +67,6 @@ export default {
 .Overview2 {
   margin-top: 100px;
   width: 70%;
-  height: 70%;
-  border: 1px solid #2a323d;
   border-radius: 5px;
 }
 .CardProfile {
@@ -111,5 +110,19 @@ export default {
 }
 .colorGray:hover {
   color: #47a6ff;
+}
+.side {
+  border-bottom: 1px solid #2a323d;
+}
+.repoName {
+  color: #4b87c6;
+  font-size: 1.3rem;
+}
+.Visib {
+  border: 1px solid #2a323d;
+  border-radius: 15px;
+  padding: 0.5%;
+  font-size: 0.8rem;
+  color: gray;
 }
 </style>
