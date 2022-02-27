@@ -3,9 +3,7 @@
   <body class="Background">
     <Navbar />
     <SecondNavbar />
-    <ProfileCard />
-    <Overview />
-
+    <TemplatesProfileCard />
   </body>
 </template>
 

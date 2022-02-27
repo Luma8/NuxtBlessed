@@ -1,5 +1,5 @@
 <template>
-  <div class="Main">
+  <div>
     <div class="container CardProfile">
       <div class="d-flex justify-content-center">
         <img
@@ -37,10 +37,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import api from "./api";
+<script>
+import api from '../../api';
 export default {
-  name: "ProfileCard",
+  name: "PRcard",
   data() {
     return {
       Posts: [],
@@ -60,10 +60,7 @@ export default {
 };
 </script>
 
-<style scoped>
-.Main {
-  display: flex;
-}
+<style>
 .Overview2 {
   margin-top: 100px;
   width: 70%;
