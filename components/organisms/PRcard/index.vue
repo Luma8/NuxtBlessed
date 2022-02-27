@@ -1,62 +1,13 @@
 <template>
   <div>
-    <div class="container CardProfile">
-      <div class="d-flex justify-content-center">
-        <img
-          class="Profile"
-          alt="Profile"
-          title="ProfilePic"
-          src="https://avatars.githubusercontent.com/u/7936152?v=4"
-        />
-      </div>
-      <h1 class="Name">{{ Posts.name }}</h1>
-      <h4 class="Login">{{ Posts.login }}</h4>
-      <p class="Bio">{{ Posts.bio }}</p>
-      <button class="buttonFollow mt-2 mb-2">Edit profile</button>
-      <div class="d-flex">
-        <p class="ml-2">{{ Posts.followers }} <a class="colorGray">Followers</a></p>
-        <p class="ml-2">{{ Posts.following }} <a class="colorGray">Followings</a></p>
-      </div>
-      <p>{{ Posts.company }}</p>
-      <p>{{ Posts.location }}</p>
-    </div>
-    <div class="Overview2">
-      <div class="mt-5" v-for="repo in repos" :key="repo.id">
-        <div class="d-flex align-items-center">
-          <h1 class="repoName">{{ repo.name }}</h1>
-          <h2 class="Visib ml-2">{{ repo.visibility }}</h2>
-        </div>
-        <p class="colorGray">{{ repo.description }}</p>
-        <div class="d-flex align-items-center">
-          <p class="mr-5">{{ repo.language }}</p>
-          <p class="colorGray">{{ repo.updated_at }}</p>
-        </div>
-        <div class="side" />
-      </div>
-    </div>
+    <MoleculesProfilePRcard />
+    <MoleculesRepositories />
   </div>
 </template>
 
 <script>
-import api from '../../api';
 export default {
   name: "PRcard",
-  data() {
-    return {
-      Posts: [],
-      repos: null,
-    };
-  },
-  mounted() {
-    api.get("https://api.github.com/users/yusefrich").then((response) => {
-      this.Posts = response.data;
-      console.log("All-objects", response.data);
-    });
-    api.get("https://api.github.com/users/yusefrich/repos").then((response) => {
-      this.repos = response.data;
-      console.log("Repositories", response.data);
-    });
-  },
 };
 </script>
 

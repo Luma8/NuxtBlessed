@@ -1,5 +1,5 @@
 <template>
-  <div class="Main">
+  <div>
     <MoleculesProfilePcard />
     <div class="Overview2">a</div>
   </div>
